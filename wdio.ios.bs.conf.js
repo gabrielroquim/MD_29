@@ -29,7 +29,7 @@ exports.config = {
         device: 'iPhone 12 Pro',
         os_version: "14",
         'browserstack.debug': true,
-        app: "bs://693b4dd0b0c29a24cdd9d2fe95247c625006552f"
+        app: "bs://57792f79a13743ea7fdc01b2c25ea81c57d9b3c9"
     }
         // {
         //     "platformName": "iOS",
