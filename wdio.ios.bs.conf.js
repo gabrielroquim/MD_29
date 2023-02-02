@@ -3,20 +3,21 @@ const allure = require('allure-commandline')
 const video = require('wdio-video-reporter');
 
 exports.config = {
-    // hostname: 'localhost',
-    // port: 4723,
+   
     path: '/wd/hub',
     user: "gabrielroquim_j2H5F4",
     key: "ZV6tSgzyw2ytsxvpUyRF",
 
-    // services: ['appium'],
+ 
     services: ['browserstack'],
     specs: [
         './test/specs/**/*.spec.js'
     ],
     suites: {
         products: [
-            './test/specs/products.spec.js'
+            "./test/specs/products.spec.js",
+            "./test/specs/search.spec.js"
+
         ]
     },
     framework: 'mocha',
