@@ -1,45 +1,46 @@
 class ProductViewScreen {
 
-    get #products(){
+    get #products() {
         return $$(`-ios predicate string: name CONTAINS 'R$'`)
     }
 
-    get #searchIcon(){
+    get #searchIcon() {
         return $(`-ios class chain:**/XCUIElementTypeButton[2]`)
     }
 
-    get #searchText(){
+    get #searchText() {
         return $(`-ios predicate string:type == "XCUIElementTypeTextField"`)
     }
 
-    get #searchBtn(){
+    get #searchBtn() {
         return $(`~Procurar`)
     }
 
-    async search(){
+    async search() {
         await this.#searchIcon.waitForEnabled({ timeout: 10000 })
         await this.#searchIcon.click()
     }
 
-    async searchBy(name){
+    async searchBy(name) {
         await this.#searchText.waitForEnabled({ timeout: 10000 })
         await this.#searchText.setValue(name)
         await this.#searchBtn.click()
     }
 
-    async productList(){
+    async productList() {
         return await this.#products
     }
 
-    async waitProduct(name){
-        await $(`-ios predicate string:name CONTAINS '${name}'`).waitForDisplayed({ timeout: 20000 })
+    async waitProduct(name) {
+        await $(`-ios predicate string:name CONTAINS '${name}'`).waitForDisplayed({
+            timeout: 20000,
+          });
     }
 
-    async product(name){
+    async product(name) {
         await this.waitProduct(name)
         return await $(`-ios predicate string:name CONTAINS '${name}'`)
     }
-
 }
 
 module.exports = new ProductViewScreen()
